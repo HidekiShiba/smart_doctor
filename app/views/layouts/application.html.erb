@@ -11,15 +11,18 @@
 
   <body>
     <% if user_signed_in? %>
-      <li><a href="/"> Home</a></li>
-      <li><a href="/about"> About</a></li>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/about">当院について</a></li>
+      <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <% else %>
-      <li><a href="/"> Home</a></li>
-      <li><a href="/about"> About</a></li>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/about">当院について</a></li>
       <li><%= link_to "新規登録", new_user_registration_path %></li>
       <li><%= link_to "ログイン", new_user_session_path %></li>
     <% end %>
     <%= yield %>
   </body>
+  
 </html>
+
