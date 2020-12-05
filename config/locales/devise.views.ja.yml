@@ -31,7 +31,7 @@ ja:
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
         email: メールアドレス
-        name: 氏名
+        name: お名前
         birth_date: 生年月日
         sex: 性別
         encrypted_password: 暗号化パスワード
