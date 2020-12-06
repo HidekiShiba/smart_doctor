@@ -14,6 +14,7 @@
       <li><a href="/">ホーム</a></li>
       <li><a href="/about">当院について</a></li>
       <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
+      <li><%= link_to 'ユーザ一覧', users_path %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <% else %>
       <li><a href="/">ホーム</a></li>
