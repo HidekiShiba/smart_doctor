@@ -1,0 +1,28 @@
+<div class="col-md-8 offset-md-1">
+  <h2>予約詳細</h2>
+  <div class="table">
+    <%= attachment_image_tag @reservation.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %><br>
+    <%= link_to @reservation.user.name, user_path(@reservation.user) %>
+    <h6>受診日</h6><%= @reservation.reservation_date %>
+  　<h6>受診時間</h6><%= @reservation.reservation_time %>
+  　<h6>受診回数</h6><%= @reservation.consultation_count %>
+  　<h6>電話番号</h6><%= @reservation.tel %>
+  　<h6>症状</h6><%= @reservation.symptoms %>
+  　<h6>身体部位</h6><%= @reservation.body_parts %>
+  　<h6>起点日</h6><%= @reservation.starting_point %>
+    <h6>治療の有無</h6><%= @reservation.treatment %>
+  　<h6>処方の有無</h6><%= @reservation.prescription %>
+  　<h6>副作用の有無</h6><%= @reservation.side_effects %>
+  　<h6>他の罹患</h6><%= @reservation.other_diseases %>
+  　<h6>病院名</h6><%= @reservation.hospital_name %>
+  　<h6>妊娠の有無</h6><%= @reservation.pregnancy %>
+  　<h6>受診の目的</h6><%= @reservation.purpose %>
+  　<h6>医師への要望</h6><%= @reservation.request %>
+      <% if @reservation.user == current_user %>
+      <a class="btn btn-sm btn-success" href="/reservations/<%= @reservation.id %>/edit">予約更新</a>
+      <% end %>
+      <% if @reservation.user == current_user %>
+      <a data-confirm="キャンセルしますか？" class="btn btn-sm btn-danger" rel="nofollow" data-method="delete" href="/reservations/<%= @reservation.id %>">予約キャンセル</a>
+      <% end %>
+  </div>
+</div>
