@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_012757) do
+ActiveRecord::Schema.define(version: 2020_12_06_080810) do
+
+  create_table "reservations", force: :cascade do |t|
+    t.date "reservation_date", null: false
+    t.time "reservation_time", null: false
+    t.integer "consultation_count", null: false
+    t.string "tel", default: "", null: false
+    t.string "symptoms", default: "", null: false
+    t.string "body_parts", default: "", null: false
+    t.date "starting_point", null: false
+    t.integer "treatment", null: false
+    t.string "prescription", default: ""
+    t.integer "side_effects"
+    t.string "other_diseases", default: ""
+    t.string "hospital_name", default: ""
+    t.integer "pregnancy", null: false
+    t.integer "purpose", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "request"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

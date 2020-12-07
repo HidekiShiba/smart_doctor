@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:index, :show, :edit, :update]
+  resources :reservations, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   
 end

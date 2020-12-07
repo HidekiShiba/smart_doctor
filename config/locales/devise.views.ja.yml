@@ -12,7 +12,6 @@ ja:
       - :year
       - :month
       - :day
-
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
