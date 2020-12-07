@@ -1,0 +1,57 @@
+<h2 class="mt-3">予約更新フォーム</h2>
+  <% if @reservation.errors.any? %>
+    <%= @reservation.errors.count %>error prohibited this obj from being saved:
+    <% @reservation.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+  <div class="form-group">
+    <%= form_with model: @reservation, local:true do |f| %>
+      <h6>受診希望日を選択してください。</h6>
+      <%= f.date_field :reservation_date %>
+      
+      <h6>受診希望時間を選択してください。</h6>
+      <%= f.time_field :reservation_time %>
+      
+      <h6>当クリニックの受診回数を選択してください。</h6>
+      <%= f.select :consultation_count, [["初診", 0], ["２回以上", 1]], include_blank: "選択して下さい" %>
+      
+      <h6>電話番号を教えてください。（半角、「-」あり）</h6>
+      <%= f.text_field :tel %>
+      
+      <h6>どんな症状がありますか？</h6>
+      <%= f.text_area :symptoms %>
+      
+      <h6>症状のある身体部位はどこですか？</h6>
+      <%= f.text_field :body_parts %>
+      
+      <h6>症状が出たのはいつからですか？</h6>
+      <%= f.date_field :starting_point %>
+      
+      <h6>今回の症状でこれまでに治療を受けていますか？</h6>
+      <%= f.select :treatment, [["あり", 0], ["なし", 1]], include_blank: "選択して下さい" %>
+      
+      <h6>服用中の薬があれば教えてください。</h6>
+      <%= f.text_area :prescription %>
+      
+      <h6>副作用の有無を選択してください。</h6>
+      <%= f.select :side_effects, [["あり", 0], ["なし", 1]], include_blank: "選択して下さい" %>
+      
+      <h6>今回以外に罹患中の病気があれば教えてください。</h6>
+      <%= f.text_field :other_diseases %>
+      
+      <h6>かかりつけの病院があれば教えてください。</h6>
+      <%= f.text_area :hospital_name %>
+      
+      <h6>妊娠の有無を選択してください。</h6>
+      <%= f.select :pregnancy, [["なし", 0], ["可能性あり", 1], ["妊娠中", 2], ["授乳中", 3]], include_blank: "選択して下さい" %>
+      
+      <h6>今回の受診の目的を教えてください。</h6>
+      <%= f.select :purpose, [["診断＋診察＋処方", 0], ["診察＋処方", 1], ["処方のみ", 2]], include_blank: "選択して下さい" %>
+      
+      <h6>最後に医師への要望があれば教えてください。</h6>
+      <%= f.text_area :request %>
+      
+      <%= f.submit '更新', :class=>"btn btn-success" %>
+    <% end %>
+  </div>
