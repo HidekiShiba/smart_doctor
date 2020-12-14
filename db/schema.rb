@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_080810) do
+ActiveRecord::Schema.define(version: 2020_12_14_063828) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "reservation_date", null: false
     t.time "reservation_time", null: false
     t.integer "consultation_count", null: false
-    t.string "tel", default: "", null: false
     t.string "symptoms", default: "", null: false
     t.string "body_parts", default: "", null: false
     t.date "starting_point", null: false
@@ -27,10 +26,10 @@ ActiveRecord::Schema.define(version: 2020_12_06_080810) do
     t.string "hospital_name", default: ""
     t.integer "pregnancy", null: false
     t.integer "purpose", null: false
+    t.string "request", default: "", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "request"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_12_06_080810) do
     t.datetime "updated_at", null: false
     t.string "profile_image_id"
     t.boolean "admin", default: false
+    t.string "kana"
+    t.string "tel"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
